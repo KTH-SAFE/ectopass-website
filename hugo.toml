@@ -1,6 +1,6 @@
 baseURL = 'https://www.ectopass.com/'
 locale = 'en-us'
-title = 'Ectopass'
+title = 'Ectopass 👻'
 theme = 'hugo-bearblog'
 
 [caches]

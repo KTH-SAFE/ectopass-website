@@ -11,13 +11,7 @@ performance but can break security by accidentally **leaking data**. See for exa
 
 ![demo screenshot](/static/images/demo.png)
 
-### Try it in the browser
-
-You can directly try a demo of Ectopass from your browser:
-
-- Open [VS Code](https://vscode.dev/) for the web.
-- Search for the [Ectopass](https://marketplace.visualstudio.com/items?itemName=ectopass.ectopass) extension and install it.
-- Launch the `Ectopass: Demo` command.
+You can easily try Ectopass in your browser by following the tutorial [here](tutorial)!
 
 ### How Ectopass works
 
@@ -46,8 +40,7 @@ The existing solutions are either impractical (like changing the hardware) or do
 Ectopass can help pinpoint the exact files where vulnerabilities can be found and limit the scope of SLH to those files.
 Activating SLH to all files of a project (industry default) can be very time consuming.
 
-Benchmarking on [`libsodium`](https://github.com/jedisct1/libsodium), we observed an overhead of 831% with SLH activated on all files compared to
-only **4%** when partially activating it on vulnerable files reported by Ectopass.
+Check our benchmarks [here](benchmarks)!
 
 ### Analyzing large projects
 
