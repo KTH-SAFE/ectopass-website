@@ -20,7 +20,7 @@ You can easily try Ectopass in your browser by following the tutorial [here](tut
 Ectopass is implemented as an [LLVM](https://en.wikipedia.org/wiki/LLVM) pass (hence the name). It can be integrated with any codebase which can
 be compiled to LLVM IR (C, C++, Rust, Swift, etc).
 
-Ectopass builds the Control Flow Graph of every function of the codebase, extends it with speculative paths, calculates data dependencies and then performs an analysis based on [Leakage Containment Models](https://arxiv.org/abs/2112.10511).
+Ectopass performs a direct analysis of the Control Flow Graph of the program extended with speculative execution.
 
 ### Configuration
 
