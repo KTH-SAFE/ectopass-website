@@ -35,7 +35,7 @@ We first noticed that enabling or disabling SLH on all files for nginx alone did
 benchmark we only used a version of nginx with selective SLH.
 We can observe a noticeable difference in the results if OpenSSL is compiled with or without SLH.
 
-To benchmark the webserver we ran 400000 requests with 10 concurrent threads to get the Ectopass tutorial page:
+To benchmark the web server we ran 400000 requests with 10 concurrent threads to get the Ectopass tutorial page:
 
 ```
 ab -n 400000 -c 10 https://localhost:1312/tutorial/
