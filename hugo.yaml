@@ -1,0 +1,36 @@
+baseURL: https://ectopass.com/
+locale: en-us
+title: Ectopass
+
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+menu:
+  main:
+    - name: Documentation
+      pageRef: /docs
+      weight: 1
+    - name: Benchmarks
+      pageRef: /benchmarks
+      weight: 2
+    - name: Pricing
+      pageRef: /pricing
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+
+params:
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: static/spectre.png
+    width: wide
+
+  banner:
+    key: announcement-001
+    message: |
+      ⚠️ Website under construction! We are finalizing different aspects of this project. Bear with us!

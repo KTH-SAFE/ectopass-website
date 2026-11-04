@@ -1,0 +1,141 @@
+<div class="container">
+	<div id="editorcontainer">
+		<div id="editor"></div>
+	</div>
+	<pre id="term"></pre>
+</div>
+
+<style>
+#editorcontainer {
+	width: 100%;
+	border: solid 2px #3B3B3B;
+	border-radius: 25px;
+	background-color: #1F1F1F;
+}
+#editor {
+	width: 90%;
+	height: 400px;
+	margin-left: 25px;
+}
+#term {
+	flex-grow: 1;
+	width: 100%;
+	border: solid 2px #3B3B3B;
+	border-radius: 25px;
+	color:#ddd;
+	padding:1rem;
+	min-height:8rem;
+	overflow:auto;
+	margin-top: 15px;
+	height: 400px;
+	background-color: #1F1F1F;
+}
+.container {
+	margin-top: 15px;
+	width: 100%;
+}
+.caret {
+	background-color: white;
+	animation: blink 1s infinite;
+}
+@keyframes blink {
+    0%, 100% {
+        background-color: white;
+    }
+    50% {
+        background-color: black;
+    }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.56.0/min/vs/loader.min.js"></script>
+<script type=module>
+import Convert from "https://cdn.jsdelivr.net/npm/ansi-to-html@0.7.2/+esm";
+// Proxy Monaco Editor workers using a data URL (adapted from: https://github.com/microsoft/monaco-editor/blob/main/docs/integrate-amd-cross.md)
+require.config({ paths: { "vs": "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.56.0/min/vs/" }});
+
+var convert = new Convert();
+
+window.MonacoEnvironment = {
+    getWorkerUrl: function(workerId, label) {
+	return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+	    self.MonacoEnvironment = { baseUrl: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.56.0/min/" };
+	    importScripts("https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.56.0/min/vs/base/worker/workerMain.min.js");`
+	)}`;
+    }
+};
+
+require(["vs/editor/editor.main"], function () {
+	//const API_URL = "http://localhost:10000/demosimple"; // your backend
+        const API_URL = "https://ectopass-webservice-latest.onrender.com/demosimple"
+	const defaultCFile =
+`// Test Ectopass live! Press "Enter" to trigger the analysis on this file.
+// You can even modify it yourself!
+
+int array1[100];
+int array2[100];
+int temp;
+
+void victim_function(int x) {
+     if (x < 100) {
+	  temp &= array2[array1[x]];
+     }
+}
+`;
+
+	// Create the editor with some sample JavaScript code
+	var editor = monaco.editor.create(document.getElementById("editor"), {
+		value: defaultCFile,
+		language: "c",
+		theme: "vs-dark",
+		scrollbar: {
+			vertical: "hidden",
+			horizontal: "hidden",
+		},
+		minimap: {
+			enabled: false,
+		},
+		overviewRulerLanes: 0,
+		scrollBeyondLastLine: false,
+		fontSize: 16,
+	});
+
+	// Resize the editor when the window size changes
+	const editorElement = document.getElementById("editor");
+	window.addEventListener("resize", () => editor.layout({
+		width: editorElement.offsetWidth,
+		height: editorElement.offsetHeight,
+	}));
+
+	const term = document.getElementById("term");
+	term.innerHTML = "<span style=\"color: green\">$</span> ectopass program.ll<span class=\"caret\"> </span>";
+
+	document.addEventListener("keypress", async function(event) {
+	  if (event.code == "Enter" && !editor.hasTextFocus()) {
+		term.innerHTML = "<span style=\"color: green\">$</span> ectopass program.ll\n";
+		try {
+			const response = await fetch(API_URL, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ c: editor.getValue(), config: "toto" }),
+			});
+			let status = response.status;
+			let text = await response.text();
+
+			if (status === 500) {
+				// Internal Server Error on ectopass-webservice
+				throw new Error(text);
+			} else if (status !== 200) {
+				throw new Error(text);
+			}
+
+			term.innerHTML += convert.toHtml(text);
+		} catch (e) {
+			term.textContent += e.message;
+		}
+	  }
+	});
+});
+</script>
+
+<p><br></p>
