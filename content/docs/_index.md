@@ -51,4 +51,4 @@ On the [front page](..) you can try out Ectopass with a small C program. Ectopas
 ```bash
 clang-18 -emit-llvm -Og -g -S program.c
 ```
-And then analyse it.
+And then analyze it.

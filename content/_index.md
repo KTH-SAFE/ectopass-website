@@ -30,7 +30,7 @@ params:
   {{< hextra/feature-card
     icon="fast-forward"
     title="Fast"
-    subtitle="Relies on  Control Flow Graphs to analyse large files quickly. Does not perform symbolic execution."
+    subtitle="Relies on  Control Flow Graphs to analyze large files quickly. Does not perform symbolic execution."
     style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));"
     >}}
   {{< hextra/feature-card

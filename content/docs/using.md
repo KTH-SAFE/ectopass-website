@@ -10,20 +10,7 @@ Once Ectopass is [installed](../installation), you are ready to run it!
 For a quick test, save the demo C program on the home page in a `program.c` file and run `ectopass program.c`.
 You should get the same output!
 
-If you look in the `$HOME/.ectopass/results` folder, you should be able to see two new files:
-* `out.ll`: the LLVM IR generated from this C program
-* `result.json`: the machine-readable output format of Ectopass
-
-The location of where the output results are generated and their format can be changed in the
-[configuration](../configuration) file.
-
-## Output format
-
-Ectopass emits one JSON file per input analysed in the results directory.
-It follows the [`PublishDiagnosticsParams`](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#publishDiagnosticsParams) interface from the Language Server Protocol.
-At the end of the analysis, Ectopass reads this file and pretty prints its content on the command-line.
-
-See the different options with `ectopass --help` to modify the CLI output.
+You can also input Ectopass with a precompiled LLVM IR file.
 
 ## Integration in larger projects
 
