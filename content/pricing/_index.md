@@ -4,5 +4,11 @@ draft: false
 title: 'Pricing'
 ---
 
-🏗️ The pricing model is under construction.
-If you are interested in an early try-out, [contact us](../docs/about)!
+We offer two types of licenses.
+
+{{< cards >}}
+  {{< card title="Evaluation" icon="beaker" subtitle="**Try out** Ectopass for a limited time to see if it meets your needs. The results can not be used inside a commercial product." >}}
+  {{< card title="Yearly" icon="shield-check" subtitle="Yearly license scoped for a single project. **Unlimited** use during that year for that project." >}}
+{{< /cards >}}
+
+Please contact us at [`contact@ectopass.com`](mailto:contact@ectopass.com) to get started!

@@ -12,4 +12,4 @@ Ectopass has been developed at [KTH Royal Institute of Technology](https://www.k
 - [Can Aknesil](https://www.kth.se/profile/aknesil), Postdoc
 - [Hugues de Valon](https://www.kth.se/profile/huguesdv), Research Engineer
 
-Get in touch if you would like to get more information about Ectopass or how to use it for your own projects!
+Get in touch at [`contact@ectopass.com`](mailto:contact@ectopass.com) if you would like to get more information about Ectopass or how to use it for your own projects!
