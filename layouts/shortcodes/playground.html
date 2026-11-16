@@ -23,12 +23,12 @@
 	border: solid 2px #3B3B3B;
 	border-radius: 25px;
 	color:#ddd;
+	background-color: #1F1F1F;
 	padding:1rem;
 	min-height:8rem;
 	overflow:auto;
 	margin-top: 15px;
 	height: 400px;
-	background-color: #1F1F1F;
 }
 .container {
 	margin-top: 15px;
@@ -108,11 +108,11 @@ void victim_function(int x) {
 	}));
 
 	const term = document.getElementById("term");
-	term.innerHTML = "<span style=\"color: green\">$</span> ectopass program.ll<span class=\"caret\"> </span>";
+	term.innerHTML = "<span style=\"color: #639d62\">$</span> ectopass program.ll<span class=\"caret\"> </span>";
 
 	document.addEventListener("keypress", async function(event) {
 	  if (event.code == "Enter" && !editor.hasTextFocus()) {
-		term.innerHTML = "<span style=\"color: green\">$</span> ectopass program.ll\n";
+		term.innerHTML = "<span style=\"color: #639d62\">$</span> ectopass program.ll\n";
 		try {
 			const response = await fetch(API_URL, {
 				method: "POST",

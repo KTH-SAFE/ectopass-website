@@ -5,10 +5,10 @@ params:
   width: wide
 ---
 
-{{< hextra/hero-container image="static/spectre.png" >}}
+{{< hextra/hero-container image="static/logov2.png" imageWidth=550 >}}
 
 <div class="hx:mt-6 hx:mb-6">
-{{< hextra/hero-headline >}}
+{{< hextra/hero-headline style="text-shadow:1px 1px 100px #639d62" >}}
   Quickly find Spectre gadgets
 {{< /hextra/hero-headline >}}
 </div>
@@ -31,34 +31,38 @@ params:
     icon="fast-forward"
     title="Fast"
     subtitle="Relies on  Control Flow Graphs to analyze large files quickly. Does not perform symbolic execution."
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));"
+    style="background: radial-gradient(ellipse at 100% 100%,rgba(99,157,98,0.25),hsla(0,0%,100%,0));"
     >}}
   {{< hextra/feature-card
     icon="desktop-computer"
     title="Easy to use"
     subtitle="Strong defaults to find gadgets with no configurations."
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(142,53,74,0.15),hsla(0,0%,100%,0));"
+    style="background: radial-gradient(ellipse at 50% 100%,rgba(99,157,98,0.25),hsla(0,0%,100%,0));"
     >}}
   {{< hextra/feature-card
     icon="sparkles"
     title="Configurable"
     subtitle="Get more precise results by adapting the analysis to your system."
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(221,210,59,0.15),hsla(0,0%,100%,0));"
+    style="background: radial-gradient(ellipse at 0% 100%,rgba(99,157,98,0.25),hsla(0,0%,100%,0));"
     >}}
   {{< hextra/feature-card
     icon="eye-off"
     title="Language agnostic"
     subtitle="Work with all languages compilable to LLVM IR: C, C++, Rust, Swift, etc..."
+    style="background: radial-gradient(ellipse at 100% 0%,rgba(99,157,98,0.25),hsla(0,0%,100%,0));"
     >}}
   {{< hextra/feature-card
     icon="collection"
     title="CI friendly"
     subtitle="Easily deploy on your CI server to detect Spectre gadgets before you merge."
+    style="background: radial-gradient(ellipse at 50% 0%,rgba(99,157,98,0.25),hsla(0,0%,100%,0));"
     >}}
   {{< hextra/feature-card
     icon="document-text"
     title="Simple licensing model"
-    subtitle="Unlimited use of the tool per project, per year.">}}
+    subtitle="Unlimited use of the tool per project, per year."
+    style="background: radial-gradient(ellipse at 0% 0%,rgba(99,157,98,0.25),hsla(0,0%,100%,0));"
+    >}}
 {{< /hextra/feature-grid >}}
 
 {{< playground >}}

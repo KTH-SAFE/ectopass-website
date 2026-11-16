@@ -1,6 +1,8 @@
 baseURL: https://ectopass.com/
 locale: en-us
 title: Ectopass
+# Parse Git commit
+enableGitInfo: true
 
 module:
   imports:
@@ -24,13 +26,25 @@ menu:
 
 params:
   navbar:
-    displayTitle: true
+    displayTitle: false
     displayLogo: true
     logo:
-      path: static/spectre.png
+      path: static/logov2.png
+      width: 90
+      height: 90
     width: wide
 
   banner:
     key: announcement-001
     message: |
       ⚠️ Website under construction! We are finalizing different aspects of this project. Bear with us!
+  # Display the last modification date
+  displayUpdatedDate: true
+  dateFormat: "January 2, 2006"
+  # Display the author of the last modification
+  displayUpdatedAuthor: false
+  page:
+    displayPagination: true # for docs pages
+  blog:
+    article:
+      displayPagination: true # for blog articles
